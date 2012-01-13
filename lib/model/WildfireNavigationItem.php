@@ -2,7 +2,7 @@
 class WildfireNavigationItem extends WildfireContent{
 
   public $table = "wildfire_navigation_item";
-  
+
   public function setup(){
     parent::setup();
     //unset all the extra stuff
@@ -19,7 +19,9 @@ class WildfireNavigationItem extends WildfireContent{
           );
     //remove some the of tabs
     $this->columns['permalink'][1]['group']= false;
-    $this->columns['permalink'][1]['editable']= false;    
+    $this->columns['permalink'][1]['editable']= false;
+    $this->columns['status'][1]['editable'] = true;
+    $this->columns['status'][1]['group'] = false;    
     //find the content model
     $comp = new AdminContentController(false, false);
     $model_class = $comp->model_class;
