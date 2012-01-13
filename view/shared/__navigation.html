@@ -1,0 +1,14 @@
+<?
+if(!$navigation_scope) $navigation_scope = "live";
+if(!$depth) $depth = 0;
+?>
+<?if(($kids = $root->children) && ($nodes = $kids->scope($navigation_scope)->all()) && $nodes->count()):?>
+<ul class='navigation clearfix <?=str_replace("/", "-", $root->permalink)?> navigation-depth-<?=$depth?>'>
+  <?foreach($nodes as $node):?>
+  <li class='navigation-branch clearfix'>
+    <a href="<?if($node->nav_url):?><?=$node->nav_url?><?elseif(($content = $node->content_item) && ($content = $content->scope($content_scope)->first())):?><?=$content->permalink?><?else:?>/<?endif?>" class='navigation-node navigation-node-depth-<?=$depth?> clearfix'><?=$node->title?></a>
+    <?=partial("__navigation", array('root'=>$node, 'depth'=>$depth++))?>
+  </li>
+  <?endforeach?>
+</ul>
+<?endif?>
