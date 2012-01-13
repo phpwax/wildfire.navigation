@@ -31,7 +31,7 @@ class WildfireNavigationItem extends WildfireContent{
     //choices for the content item
     $this->define("content_item", "ManyToManyField", array('target_model'=>$model_class, 'scaffold'=>true, 'group'=>'relationships'));
     //an alternative url to use
-    $this->define("nav_url", "CharField", array('label'=>'Alternative url'));
+    $this->define("nav_url", "CharField", array('label'=>'External url'));
 
 
   }
