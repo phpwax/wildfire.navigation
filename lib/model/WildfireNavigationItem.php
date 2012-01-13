@@ -33,6 +33,10 @@ class WildfireNavigationItem extends WildfireContent{
 
 
   }
+  
+  public function scope_live(){
+    return $this->filter("revision", 0);
+  }
 
 
 
