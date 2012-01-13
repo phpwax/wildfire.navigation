@@ -1,0 +1,3 @@
+<?
+class AdminNavigationController extends CMSAdminNavigationController{}
+?>
