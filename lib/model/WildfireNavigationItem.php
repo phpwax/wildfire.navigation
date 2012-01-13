@@ -40,5 +40,15 @@ class WildfireNavigationItem extends WildfireContent{
     if(!$this->title) $this->title = "Navigation item";
     parent::before_save();
   }
+
+  public function map_live(){
+    return $this;
+  }
+  public function map_revision(){
+    return $this;
+  }
+  public function map_hide(){
+    return $this;
+  }
 }
 ?>
