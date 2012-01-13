@@ -1,0 +1,3 @@
+<?
+class NavController extends WildfireNavigationController{}
+?>
