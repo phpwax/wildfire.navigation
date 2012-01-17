@@ -2,6 +2,7 @@
 class WildfireNavigationItem extends WildfireContent{
 
   public $table = "wildfire_navigation_item";
+  public static $content_model_class = false;
 
   public function setup(){
     parent::setup();
@@ -23,11 +24,13 @@ class WildfireNavigationItem extends WildfireContent{
     $this->columns['status'][1]['editable'] = true;
     $this->columns['status'][1]['group'] = false;    
     //find the content model
-    $comp = new AdminContentController(false, false);
-    $model_class = $comp->model_class;
+    
     $this->define("content_model_class", "CharField", array('widget'=>'HiddenInput'));
-    //set the class
-    $this->content_model_class = $model_class;
+    //set the class, swap to a static so not always looking this up
+    if(!WildfireNavigationItem::$content_model_class){
+      $comp = new AdminContentController(false, false);
+      WildfireNavigationItem::$content_model_class = $comp->model_class;
+    }    
     //choices for the content item
     $this->define("content_item", "ManyToManyField", array('target_model'=>$model_class, 'scaffold'=>true, 'group'=>'relationships'));
     //an alternative url to use
