@@ -35,15 +35,14 @@ class WildfireNavigationItem extends WildfireContent{
     $this->define("content_item", "ManyToManyField", array('target_model'=>WildfireNavigationItem::$content_model_class, 'scaffold'=>true, 'group'=>'relationships'));
     //an alternative url to use
     $this->define("nav_url", "CharField", array('label'=>'External url'));
-
+    //option to load in a partial as well
+    $this->define("extra_partial", "CharField", array('widget'=>'SelectInput', 'choices'=>$this->navigation_partials()) );
 
   }
   
   public function scope_live(){
     return $this->filter("revision", 0)->order("sort ASC");
   }
-
-
 
   public function before_save(){
     if(!$this->title) $this->title = "Navigation item";
@@ -58,6 +57,13 @@ class WildfireNavigationItem extends WildfireContent{
   }
   public function map_hide(){
     return $this;
+  }
+
+  public function navigation_partials(){
+    $partials = array(''=>'-- Select --');
+    //glob over a app directory for this
+    foreach(glob(VIEW_DIR."nav/*.html") as $nav) $partials[str_replace(VIEW_DIR, "", $nav)] = trim(str_replace("_", " ", basename($nav, ".html")));
+    return $partials;
   }
 }
 ?>
