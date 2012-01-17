@@ -26,11 +26,7 @@ class WildfireNavigationItem extends WildfireContent{
     //find the content model
     
     $this->define("content_model_class", "CharField", array('widget'=>'HiddenInput'));
-    //set the class, swap to a static so not always looking this up
-    if(!WildfireNavigationItem::$content_model_class){
-      $comp = new AdminContentController(false, false);
-      WildfireNavigationItem::$content_model_class = $comp->model_class;
-    }    
+    WildfireNavigationItem::$content_model_class = CONTENT_MODEL;
     //choices for the content item
     $this->define("content_item", "ManyToManyField", array('target_model'=>WildfireNavigationItem::$content_model_class, 'scaffold'=>true, 'group'=>'relationships'));
     //an alternative url to use
