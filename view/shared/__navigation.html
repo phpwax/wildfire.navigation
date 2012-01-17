@@ -5,7 +5,7 @@ if(!$depth) $depth = 0;
 <?if(($kids = $root->children) && ($nodes = $kids->scope($navigation_scope)->all()) && $nodes->count()):?>
 <ul class='navigation clearfix <?=str_replace("/", "-", $root->permalink)?> navigation-depth-<?=$depth?>'>
   <?foreach($nodes as $node):?>
-  <?if($c = $node->content_item) && ($c = $c->scope($content_scope)->first()){ $content = $c;}?>
+  <?if(($c = $node->content_item) && ($c = $c->scope($content_scope)->first()) ){ $content = $c;}?>
   <li class='navigation-branch clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-branch-active<?endif?>'>
     
     <a href="<?if($node->nav_url):?><?=$node->nav_url?><?elseif($content):?><?=$content->permalink?><?else:?>/<?endif?>" class='navigation-node navigation-node-depth-<?=$depth?> clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-node-active<?endif?>'><?=$node->title?></a>
