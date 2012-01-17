@@ -10,6 +10,9 @@ if(!$depth) $depth = 0;
     
     <a href="<?if($node->nav_url):?><?=$node->nav_url?><?elseif($content):?><?=$content->permalink?><?else:?>/<?endif?>" class='navigation-node navigation-node-depth-<?=$depth?> clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-node-active<?endif?>'><?=$node->title?></a>
     <?=partial("__navigation", array('root'=>$node, 'depth'=>$depth++, 'content_id_stack'=>$content_id_stack))?>
+    <?if($node->extra_partial):?>
+    <?=partial("/".$node->extra_partial, array('root'=>$node));?>
+    <?endif?>
   </li>
   <?endforeach?>
 </ul>
