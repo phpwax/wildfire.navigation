@@ -1,7 +1,7 @@
 use:
 <?=partial("nav/__navigation", array('root'=>$root));?>
 
-$root is a WildfireNavigationItem
+$root is a WildfireNavigationItem (Primary / Footer from example below)
 
 The idea is the top level page is the navigation block (multi-lingual)
   - Primary
