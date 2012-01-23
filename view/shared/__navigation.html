@@ -3,7 +3,7 @@ if(!$navigation_scope) $navigation_scope = "live";
 if(!$depth) $depth = 0;
 ?>
 <?if(($kids = $root->children) && ($nodes = $kids->scope($navigation_scope)->all()) && $nodes->count()):?>
-<ul class='navigation clearfix <?=str_replace("/", "-", trim($root->permalink, "/"))?> navigation-depth-<?=$depth?><?if($depth>1 && !$root->fake_split):?> sub-navigation<?endif?>'>
+<ul class='navigation clearfix <?=str_replace("/", "-", trim($root->permalink, "/"))?> navigation-depth-<?=$depth?><?if($depth>1 && !$root->fake_split && !$root->extra_partial):?> sub-navigation<?endif?>'>
   <?foreach($nodes as $node):?>
 
 
@@ -13,7 +13,7 @@ if(!$depth) $depth = 0;
 
     <a href="<?if($node->nav_url):?><?=$node->nav_url?><?elseif($content):?><?=$content->permalink?><?else:?>/<?endif?>" class='<?if($node->fake_split):?> navigation-split-node navigation-split-node-<?=$depth?><?endif?> navigation-node navigation-node-depth-<?=$depth?> clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-node-active<?endif?>'><?=$node->title?></a>
     <?if($node->extra_partial):?>
-    <div class='navigation-branch-extra clearfix'>
+    <div class='navigation-branch-extra clearfix sub-navigation'>
       <?=partial("__navigation", array('root'=>$node, 'depth'=>($depth+1), 'content_id_stack'=>$content_id_stack))?>
       <?=partial("/".$node->extra_partial, array('root'=>$node));?>
     </div>
