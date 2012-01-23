@@ -22,9 +22,9 @@ class WildfireNavigationItem extends WildfireContent{
     $this->columns['permalink'][1]['group']= false;
     $this->columns['permalink'][1]['editable']= false;
     $this->columns['status'][1]['editable'] = true;
-    $this->columns['status'][1]['group'] = false;    
+    $this->columns['status'][1]['group'] = false;
     //find the content model
-    
+
     $this->define("content_model_class", "CharField", array('widget'=>'HiddenInput'));
     WildfireNavigationItem::$content_model_class = CONTENT_MODEL;
     //choices for the content item
@@ -34,8 +34,9 @@ class WildfireNavigationItem extends WildfireContent{
     //option to load in a partial as well
     $this->define("extra_partial", "CharField", array('widget'=>'SelectInput', 'choices'=>$this->navigation_partials()) );
 
+    $this->define("fake_split", "BooleanField");
   }
-  
+
   public function scope_live(){
     return $this->filter("revision", 0)->order("sort ASC");
   }
