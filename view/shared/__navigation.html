@@ -13,7 +13,7 @@ if(!$depth) $depth = 0;
 
     <a href="<?if($node->nav_url):?><?=$node->nav_url?><?elseif($content):?><?=$content->permalink?><?else:?>/<?endif?>" class='<?if($node->fake_split):?> navigation-split-node navigation-split-node-<?=$depth?><?endif?> navigation-node navigation-node-depth-<?=$depth?> clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-node-active<?endif?>'><?=$node->title?></a>
     <?if($node->extra_partial):?>
-    <div class='navigation-branch-extra clearfix sub-navigation extra-partial <?=str_replace("/", "-", Inflections::underscore(trim($node->extra_partial, "/")))?>'>
+    <div class='navigation-branch-extra clearfix sub-navigation extra-partial <?=str_replace("/", "-", Inflections::underscore(trim(str_replace(".", "", $node->extra_partial), "/")))?>'>
       <?=partial("__navigation", array('root'=>$node, 'depth'=>($depth+1), 'content_id_stack'=>$content_id_stack))?>
       <?=partial($node->extra_partial, array('root'=>$node));?>
     </div>
