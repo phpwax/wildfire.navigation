@@ -9,11 +9,11 @@ if(!$depth) $depth = 0;
 
   <?if(($c = $node->content_item) && ($c = $c->scope($content_scope)->first()) ){ $content = $c;}?>
 
-  <li class='navigation-branch clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-branch-active<?endif?><?if($node->fake_split):?> navigation-split navigation-split-<?=$depth?><?endif?>'>
+  <li class='navigation-branch clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-branch-active<?endif?><?if($node->fake_split):?> navigation-split navigation-split-<?=$depth?><?endif?> nav-<?=Inflections::underscore($node->permalink)?>'>
 
     <a href="<?if($node->nav_url):?><?=$node->nav_url?><?elseif($content):?><?=$content->permalink?><?else:?>/<?endif?>" class='<?if($node->fake_split):?> navigation-split-node navigation-split-node-<?=$depth?><?endif?> navigation-node navigation-node-depth-<?=$depth?> clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-node-active<?endif?>'><?=$node->title?></a>
     <?if($node->extra_partial):?>
-    <div class='navigation-branch-extra clearfix sub-navigation'>
+    <div class='navigation-branch-extra clearfix sub-navigation extra-partial <?=Inflections::underscore($node->extra_partial)?>'>
       <?=partial("__navigation", array('root'=>$node, 'depth'=>($depth+1), 'content_id_stack'=>$content_id_stack))?>
       <?=partial($node->extra_partial, array('root'=>$node));?>
     </div>
