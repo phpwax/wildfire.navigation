@@ -38,7 +38,7 @@ class WildfireNavigationItem extends WildfireContent{
   }
 
   public function scope_live(){
-    return $this->filter("revision", 0)->order("sort ASC");
+    return $this->filter("status", 1)->filter("revision", 0)->order("sort ASC");
   }
 
   public function before_save(){
