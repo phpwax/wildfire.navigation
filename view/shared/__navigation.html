@@ -15,7 +15,7 @@ if(!$depth) $depth = 0;
     <?if($node->extra_partial):?>
     <div class='navigation-branch-extra clearfix sub-navigation extra-partial <?=str_replace("/", "-", Inflections::underscore(trim(str_replace(".", "", $node->extra_partial), "/")))?>'>
       <?=partial("__navigation", array('root'=>$node, 'depth'=>($depth+1), 'content_id_stack'=>$content_id_stack))?>
-      <?=partial($node->extra_partial, array('root'=>$node));?>
+      <?=partial($node->extra_partial, array('root'=>$node, 'depth'=>$depth, 'content_id_stack'=>$content_id_stack));?>
     </div>
     <?else:?>
     <?=partial("__navigation", array('root'=>$node, 'depth'=>($depth+1), 'content_id_stack'=>$content_id_stack))?>
