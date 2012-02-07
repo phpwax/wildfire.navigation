@@ -6,7 +6,7 @@ if(!$depth) $depth = 0;
 <ul class='navigation clearfix <?=str_replace("/", "-", trim($root->permalink, "/"))?> navigation-depth-<?=$depth?><?if($depth>1 && !$root->fake_split && !$root->extra_partial):?> sub-navigation<?endif?>'>
   <?foreach($nodes as $node):?>
 
-
+  <?$content = false;?>
   <?if(($c = $node->content_item) && ($c = $c->scope($content_scope)->first()) ){ $content = $c;}?>
 
   <li class='navigation-branch clearfix<?if($content && in_array($content->primval, $content_id_stack)):?> navigation-branch-active<?endif?><?if($node->fake_split):?> navigation-split navigation-split-<?=$depth?><?endif?> nav-<?=str_replace("/", "-", trim(Inflections::underscore($node->permalink), "/"))?>'>
