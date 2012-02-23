@@ -3,7 +3,7 @@ if(!$navigation_scope) $navigation_scope = "live";
 if(!$depth) $depth = 0;
 ?>
 <?if(($kids = $root->children) && ($nodes = $kids->scope($navigation_scope)->all()) && $nodes->count()):?>
-<ul class='navigation clearfix <?=str_replace("/", "-", trim($root->permalink, "/"))?> navigation-depth-<?=$depth?><?if($depth>1 && !$root->fake_split && !$root->extra_partial):?> sub-navigation<?endif?>'>
+<ul class='navigation clearfix <?=str_replace("&", "and", str_replace("/", "-", trim($root->permalink, "/")))?> navigation-depth-<?=$depth?><?if($depth>1 && !$root->fake_split && !$root->extra_partial):?> sub-navigation<?endif?>'>
   <?foreach($nodes as $node):?>
 
   <?$content = false;?>
