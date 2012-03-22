@@ -31,6 +31,7 @@ class WildfireNavigationItem extends WildfireContent{
     $this->define("content_item", "ManyToManyField", array('target_model'=>WildfireNavigationItem::$content_model_class, 'scaffold'=>true, 'group'=>'relationships'));
     //an alternative url to use
     $this->define("nav_url", "CharField", array('label'=>'External url'));
+    $this->define("accesskey","CharField");
     //option to load in a partial as well
     $this->define("extra_partial", "CharField", array('widget'=>'SelectInput', 'choices'=>$this->navigation_partials()) );
 
