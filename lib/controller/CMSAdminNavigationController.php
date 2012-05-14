@@ -1,6 +1,6 @@
 <?
 class CMSAdminNavigationController extends AdminContentController{
-  
+  public static $restricted_tree = false;
   public $module_name = "navigation";
   public $model_class = 'WildfireNavigationItem';
   public $display_name = "Navigation";
