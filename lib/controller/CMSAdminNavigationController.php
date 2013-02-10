@@ -6,6 +6,7 @@ class CMSAdminNavigationController extends AdminContentController{
   public $display_name = "Navigation";
   public $dashboard = false;
   public $tree_layout = true;
+  public $singular = "Item";
   public $sortable = true;
   public $sort_scope = "live";
   public $filter_fields=array(
@@ -13,6 +14,6 @@ class CMSAdminNavigationController extends AdminContentController{
                           'parent' => array('columns'=>array('parent_id'), 'partial'=>'_filters_parent'),
                           'language' => array('columns'=>array('language'), 'partial'=>"_filters_language")
 	                      );
-  
+
 }
 ?>
