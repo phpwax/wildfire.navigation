@@ -35,7 +35,6 @@ class WildfireNavigationItem extends WildfireContent{
     $this->define("accesskey","CharField");
     //option to load in a partial as well
     $this->define("extra_partial", "CharField", array('widget'=>'SelectInput', 'choices'=>$this->navigation_partials()) );
-
     $this->define("fake_split", "BooleanField");
   }
 
@@ -63,6 +62,17 @@ class WildfireNavigationItem extends WildfireContent{
     //glob over a app directory for this
     foreach(glob(VIEW_DIR."nav/*.html") as $nav) $partials[str_replace(VIEW_DIR, "", $nav)] = trim(str_replace("_", " ", basename($nav, ".html")));
     return $partials;
+  }
+
+  public function target_attributes(){
+    $attributes = array(
+      ''=>'-- Select --',
+      "_blank"=>"_blank",
+      "_parent"=>"_parent",
+      "_self"=>"_self",
+      "_top"=>"_top"
+    );
+    return $attributes;
   }
 }
 ?>
