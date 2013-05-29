@@ -18,7 +18,8 @@ class WildfireNavigationItem extends WildfireContent{
           $this->columns['meta_keywords'],
           $this->columns['meta_description'],
           $this->columns['files'],
-          $this->columns['page_type']
+          $this->columns['page_type'],
+          $this->columns['revision']
           );
     //remove some the of tabs
     $this->columns['permalink'][1]['group']= false;
@@ -44,7 +45,7 @@ class WildfireNavigationItem extends WildfireContent{
   }
 
   public function scope_live(){
-    return $this->filter("status", 1)->filter("revision", 0)->order("sort ASC");
+    return $this->filter("status", 1)->order("sort ASC");
   }
 
   public function before_save(){
@@ -53,9 +54,6 @@ class WildfireNavigationItem extends WildfireContent{
   }
 
   public function map_live(){
-    return $this;
-  }
-  public function map_revision(){
     return $this;
   }
   public function map_hide(){
