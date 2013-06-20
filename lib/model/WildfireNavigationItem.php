@@ -15,6 +15,7 @@ class WildfireNavigationItem extends WildfireContent{
           $this->columns['date_end'],
           $this->columns['categories'],
           $this->columns['excerpt'],
+          $this->columns['meta_title'],
           $this->columns['meta_keywords'],
           $this->columns['meta_description'],
           $this->columns['files'],
