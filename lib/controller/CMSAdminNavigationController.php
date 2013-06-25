@@ -11,7 +11,8 @@ class CMSAdminNavigationController extends AdminContentController{
   public $sort_scope = "live";
   public $filter_fields=array(
                           'text' => array('columns'=>array('title'), 'partial'=>'_filters_text', 'fuzzy'=>true),
-                          'language' => array('columns'=>array('language'), 'partial'=>"_filters_language")
+                          'language' => array('columns'=>array('language'), 'partial'=>"_filters_language"),
+                          'parent' => array('columns'=>array('parent_id'), 'partial'=>false)
 	                      );
 
 }
