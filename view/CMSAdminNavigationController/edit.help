@@ -2,7 +2,6 @@
 $data =array(
   'introduction'=>"<p>This page allows you to edit a navigation item.</p>",
   'steps'=> array(
-    array(
       array(
         'elements'=>array(
           array(
@@ -13,13 +12,14 @@ $data =array(
           )
         )
       ),
+      //CONTENT TAB
       array(
         'elements'=>array(
           array(
             'triggers'=>array(array('selector'=>'#tab-content a', 'event'=>'click')),
-            'selector'=> '#content_tab_content .raised',
-            'copy'=>'Here you can change the basic details for the navigation item, including its title and if it is live or not',
-            'position'=>array('top'=>'-25', 'left'=>'0')
+            'selector'=> '#content_tab_content .raised:eq(0)',
+            'copy'=>'Within the "Content" tab you\'re presented with an open set of fields to edit. These allow you to change its title &amp; some other options.',
+            'position'=>array('top'=>'-55', 'left'=>'-10')
           )
         )
       ),
@@ -27,9 +27,9 @@ $data =array(
         'elements'=>array(
           array(
             'triggers'=>array(array('selector'=>'#tab-content a', 'event'=>'click')),
-            'selector'=> '#content_tab_content .raised .field-navurl',
-            'copy'=>'The external url option allows you to pick the exact url you want this to go to for content that are not part of the website.',
-            'position'=>array('top'=>'-25', 'left'=>'0')
+            'selector'=> '#content_tab_content .field-navurl',
+            'copy'=>'If this navigation item needs to go to an external website or file then enter it\'s web address in here. This will overwrite any page that you join this to.' ,
+            'position'=>array('top'=>'-55', 'left'=>'-10')
           )
         )
       ),
@@ -37,9 +37,9 @@ $data =array(
         'elements'=>array(
           array(
             'triggers'=>array(array('selector'=>'#tab-content a', 'event'=>'click')),
-            'selector'=> '#content_tab_content .raised .field-accesskey',
-            'copy'=>'You can specify an accesskey to create a global shortcut, it should be a single letter. Normally by pressing shift + alt + the letter you entered will trigger the link.',
-            'position'=>array('top'=>'-25', 'left'=>'0')
+            'selector'=> '#content_tab_content .field-accesskey',
+            'copy'=>'Setting an accesskey creates a keyboard shortcut that is normally activated by pressing shift + alt + the letter you enter. This should be just a single letter.' ,
+            'position'=>array('top'=>'-85', 'left'=>'-10')
           )
         )
       ),
@@ -49,19 +49,17 @@ $data =array(
             'triggers'=>array(
               array('selector'=>'#tab-content a', 'event'=>'click'),
               array('selector'=>'.ach-relationships', 'event'=>'click', 'listen'=>'accordionactivate', 'listen_selector'=>'.accordion')
-              ),
+            ),
             'selector'=> '#content_tab_content .ac-relationships',
-            'copy'=>'If this navigation item is tied to a page on the website, you can use this listing to find that page and join them together.',
+            'copy'=>'From this listing you can pick any page on the website and this will then be used as the web address this item goes to.' ,
             'position'=>array('top'=>'-55', 'left'=>'-10')
           )
         )
       )
 
     )
-  )
+  );
 
-);
+  ?>
 
-?>
-
-<?=json_encode($data);?>
+  <?=json_encode($data);?>
