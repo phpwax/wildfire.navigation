@@ -42,6 +42,19 @@ $data =array(
             'position'=>array('top'=>'-25', 'left'=>'0')
           )
         )
+      ),
+      array(
+        'elements'=>array(
+          array(
+            'triggers'=>array(
+              array('selector'=>'#tab-content a', 'event'=>'click'),
+              array('selector'=>'.ach-relationships', 'event'=>'click', 'listen'=>'accordionactivate', 'listen_selector'=>'.accordion')
+              ),
+            'selector'=> '#content_tab_content .ac-relationships',
+            'copy'=>'If this navigation item is tied to a page on the website, you can use this listing to find that page and join them together.',
+            'position'=>array('top'=>'-55', 'left'=>'-10')
+          )
+        )
       )
 
     )
