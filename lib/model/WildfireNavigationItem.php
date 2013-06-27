@@ -40,9 +40,9 @@ class WildfireNavigationItem extends WildfireContent{
     $this->define("nav_url", "CharField", array('label'=>'External url', 'group'=>'content', 'primary_group'=>1));
     $this->define("accesskey","CharField", array('group'=>'content', 'primary_group'=>1));
     //option to load in a partial as well
-    $this->define("extra_partial", "CharField", array('widget'=>'SelectInput', 'choices'=>$this->navigation_partials(), 'group'=>'content', 'primary_group'=>1));
+    $this->define("extra_partial", "CharField", array('widget'=>'SelectInput', 'choices'=>$this->navigation_partials(), 'group'=>'advanced'));
 
-    $this->define("fake_split", "BooleanField", array('group'=>'content', 'primary_group'=>1));
+    $this->define("fake_split", "BooleanField", array('group'=>'advanced'));
   }
 
   public function scope_live(){

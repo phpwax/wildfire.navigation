@@ -1,0 +1,68 @@
+<?
+$data =array(
+  'introduction'=>"<p>This page allows you to edit a navigation item.</p>",
+  'steps'=> array(
+    array(
+      'elements'=>array(
+        array(
+          'selector'=> '#filters_container',
+          'copy'=>'These allow you to search navigation based on the name',
+          'position'=>array('top'=>'95', 'left'=>'0')
+        )
+      )
+    ),
+    array(
+      'elements'=>array(
+        array(
+          'selector'=> '.tree_node:eq(0)',
+          'copy'=>'This is a navigation item. You can see the title and some basic information about it, change its status and some basic operations.',
+          'fallback_copy'=>'Normally you have a set of buttons listing things you can do',
+          'position'=>array('top'=>'80', 'left'=>'10')
+        )
+      )
+    ),
+    array(
+      'elements'=>array(
+        array(
+          'selector'=> '.tree_operations:eq(0)',
+          'copy'=>'These buttons typically allow you to go to the editing page, add a child, or make a copy.',
+          'fallback_copy'=>'Normally you have a set of buttons listing things you can do',
+          'position'=>array('top'=>'80', 'left'=>'-40')
+        )
+      )
+    ),
+    array(
+      'elements'=>array(
+        array(
+          'selector'=> '.tree_col_status:eq(0)',
+          'copy'=>'This shows you the current status of the item and is used to determine if it is visible on the front end',
+          'position'=>array('top'=>'80', 'left'=>'-40')
+        )
+      )
+    ),
+    array(
+      'elements'=>array(
+        array(
+          'selector'=> '.tree_col_status:eq(0)',
+          'copy'=>'By clicking on this it will toggle the status, allowing you to quickly turn pages on &amp; off',
+          'position'=>array('top'=>'80', 'left'=>'-40')
+        )
+      )
+    ),
+    array(
+      'elements'=>array(
+        array(
+          'selector'=> '.view_children_link:eq(0) b',
+          'copy'=>'This button signifies that this item has children underneath it. To view those children, just click on this and they will be shown underneath.',
+          'fallback_copy'=>'If an item has children you will get an icon to show that; clicking on that icon will show them',
+          'position'=>array('top'=>'40', 'left'=>'0')
+        )
+      )
+    )
+  )
+
+);
+
+?>
+
+<?=json_encode($data);?>
