@@ -1,5 +1,6 @@
 <?
 $data =array(
+  'action'=>$action,
   'introduction'=>"<p>This page allows you to control certain parts of the sites navigation system. This will vary per website, but should be simple to follow.</p>",
   'steps'=> array(
     array(
