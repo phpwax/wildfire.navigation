@@ -9,7 +9,6 @@ class WildfireNavigationItem extends WildfireContent{
     //unset all the extra stuff
     unset($this->columns['content'],
           $this->columns['view'],
-          $this->columns['language'],
           $this->columns['layout'],
           $this->columns['date_start'],
           $this->columns['date_end'],
@@ -26,6 +25,7 @@ class WildfireNavigationItem extends WildfireContent{
     $this->columns['permalink'][1]['group']= false;
     $this->columns['permalink'][1]['editable']= false;
     $this->columns['status'][1]['editable'] = true;
+    $this->columns['language'][1]['group']= "advanced";
     foreach(array("status", "alt_language", "sort") as $move_fields){
       $this->columns[$move_fields][1]['group'] = 'content';
       $this->columns[$move_fields][1]['primary_group'] = 1;
