@@ -61,6 +61,10 @@ class WildfireNavigationItem extends WildfireContent{
     return $this;
   }
 
+  public function has_revisions(){
+    return false;
+  }
+
   public function navigation_partials(){
     $partials = array(''=>'-- Select --');
     //glob over a app directory for this
