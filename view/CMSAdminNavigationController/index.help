@@ -63,7 +63,7 @@ $data =array(
   )
 
 );
-WaxEvent::run("help.".$module_name.".extend", $data);
+WaxEvent::run("help.".$module_name.".".$action.".extend", $data);
 ?>
 
 <?=json_encode($data);?>
